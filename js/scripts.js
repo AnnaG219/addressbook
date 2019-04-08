@@ -9,14 +9,14 @@ AddressBook.prototype.addContact = function(contact) {
   this.contacts.push(contact);
 }
 AddressBook.prototype.assignId =function() {
-  this.currentId +=1;
+  this.currentId += 1;
   return this.currentId;
 }
 //AddressBook.prototype.update = function(phoneNumber)
   //this.phoneNumber = 
 
 AddressBook.prototype.findContact = function(id) {
-  for(var i=0; i < this.contacts.length; i++) {
+  for (var i=0; i< this.contacts.length; i++) {
     if (this.contacts[i]) {
       if (this.contacts[i].id == id) {
           return this.contacts[i];
@@ -38,9 +38,9 @@ AddressBook.prototype.deleteContact = function (id) {
 }
 //Business Logic for Contacts, Object with multiple properties. (last, first, #)
 function Contact(firstName, lastName, phoneNumber) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.phoneNumber = phoneNumber;
+  this.firstName = firstName,
+  this.lastName = lastName,
+  this.phoneNumber = phoneNumber
 }
 //this is a method that takes two properties and returns them together. Can be applied to any contact object (.prototype) lets it inherit the method
 Contact.prototype.fullName = function() {
@@ -53,10 +53,11 @@ var addressBook = new AddressBook();
 function displayContactDetails(addressBookToDisplay) {
   var contactsList = $("ul#contacts");
   var htmlForContactInfo = "";
-  addressBookToDisplay.contacts.forEach(function(contact){
+  addressBookToDisplay.contacts.forEach(function(contact) {
     htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
   });
-}
+    contactsList.html(htmlForContactInfo);
+};
 
 function showContact (contactId) {
   var contact = addressBook.findContact(contactId);
@@ -66,7 +67,7 @@ function showContact (contactId) {
   $(".phone-number").html(contact.phoneNumber);
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+  buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
 }
 
 function attachContactListeners() {
@@ -81,8 +82,9 @@ function attachContactListeners() {
 };
 
 $(document).ready(function() {
+  attachContactListeners();
   $("form#new-contact").submit(function(event) {
-    event.preventDefault
+    event.preventDefault();
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
     var inputtedPhoneNumber = $("input#new-phone-number").val();
@@ -94,5 +96,5 @@ $(document).ready(function() {
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
-  });
-});
+  })
+})
