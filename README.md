@@ -14,7 +14,7 @@ A website created with javascript, jquery, html, css and bootstrap, users can en
 | **Webpage has a form that collects Contact Information** | "Jane", "Doe", "555-867-5309"| FirstName: Jane; LastName: Doe; PhoneNumber: 555-867-5309 |
 | **The program will gather contact info into an addressBook**| "Jane", "Doe", "555-867-5309" |
  Jane Doe |
-| **User can click on contact and pull up previously entered information** | clicks "* Jane Doe" | First Name: Jane, Last Name: Doe, Phone Number: 555-867-5309 |
+| **User can click on contact and pull up previously entered information** | clicks "Jane Doe" | First Name: Jane, Last Name: Doe, Phone Number: 555-867-5309 |
 
 ### Setup & Installation
 
